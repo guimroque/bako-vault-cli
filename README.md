@@ -1,25 +1,25 @@
 # Bako Vault CLI
 
-CLI para interagir com Bako Vault na rede Fuel.
+CLI tool to interact with Bako Vault on the Fuel Network.
 
-## Instalação
+## Installation
 
 ```bash
 pnpm install
 ```
 
-## Uso
+## Usage
 
-### Modo Interativo
+### Interactive Mode
 
 ```bash
 pnpm start
 ```
 
-### Com Argumentos
+### With Arguments
 
 ```bash
-# Produção
+# Production
 pnpm start connect --token <API_TOKEN>
 
 # Staging
@@ -29,16 +29,16 @@ pnpm start connect --token <API_TOKEN> --server-api https://stg-api.bako.global
 pnpm start connect --token <API_TOKEN> --server-api http://localhost:3333 --network http://localhost:4000/v1/graphql
 ```
 
-### Opções
+### Options
 
-| Opção | Descrição | Default |
-|-------|-----------|---------|
+| Option | Description | Default |
+|--------|-------------|---------|
 | `-t, --token` | Bako API Token | - |
-| `-s, --server-api` | URL da API do Bako | `https://api.bako.global` |
-| `-n, --network` | URL da rede Fuel | `https://mainnet.fuel.network/v1/graphql` |
-| `-i, --interactive` | Modo interativo | `false` |
+| `-s, --server-api` | Bako API URL | `https://api.bako.global` |
+| `-n, --network` | Fuel Network URL | `https://mainnet.fuel.network/v1/graphql` |
+| `-i, --interactive` | Interactive mode | `false` |
 
-## Ambientes
+## Environments
 
 ### API
 - **Production:** `https://api.bako.global`
@@ -50,9 +50,9 @@ pnpm start connect --token <API_TOKEN> --server-api http://localhost:3333 --netw
 - **Testnet:** `https://testnet.fuel.network/v1/graphql`
 - **Local:** `http://localhost:4000/v1/graphql`
 
-## Dependências
+## Dependencies
 
-- [bakosafe](https://www.npmjs.com/package/bakosafe) - SDK do Bako Safe
-- [fuels](https://www.npmjs.com/package/fuels) - SDK da Fuel Network
+- [bakosafe](https://www.npmjs.com/package/bakosafe) - Bako Safe SDK
+- [fuels](https://www.npmjs.com/package/fuels) - Fuel Network SDK
 - [commander](https://www.npmjs.com/package/commander) - CLI framework
-- [@inquirer/prompts](https://www.npmjs.com/package/@inquirer/prompts) - Prompts interativos
+- [@inquirer/prompts](https://www.npmjs.com/package/@inquirer/prompts) - Interactive prompts
