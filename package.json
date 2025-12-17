@@ -1,0 +1,27 @@
+{
+  "name": "bako-vault-cli",
+  "version": "1.0.0",
+  "description": "CLI para interagir com Bako Vault",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.1",
+    "bakosafe": "^0.5.2",
+    "commander": "^12.1.0",
+    "fuels": "^0.101.1",
+    "neverthrow": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
