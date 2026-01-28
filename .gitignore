@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+# Pending transaction
+.pending-tx.json
+
+# Wallet configs (may contain sensitive addresses)
+wallets/*.json
+!wallets/*.json.template
+
+# Environment
+.env
+.env.local
