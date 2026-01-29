@@ -23,10 +23,6 @@ import {type} from "node:os";
 interface SendTxOptions {
   /** Network name (optional, uses pending tx network if not provided) */
   network?: string;
-  /** Signer address for CLI-provided signature */
-  signer?: string;
-  /** Signature for CLI-provided signature */
-  signature?: string;
 }
 
 /**
@@ -60,7 +56,6 @@ export async function sendTx(options: SendTxOptions): Promise<void> {
   console.log(chalk.white('\n  Hash:'));
   console.log(chalk.cyan(`    ${pending.hashTxId}`));
 
-  // Check if signatures provided via CLI
   let signatures = pending.signatures.map((s: string) => JSON.parse(s));
 
   if (signatures.length < pending.requiredSignatures) {

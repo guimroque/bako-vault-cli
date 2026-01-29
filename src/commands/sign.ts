@@ -132,8 +132,6 @@ export async function sign(options: SignOptions): Promise<void> {
           // Use only pending signatures (already unique)
           const allSignatures = pending.signatures.map((s) => JSON.parse(s));
 
-          console.log('allSignatures: ', allSignatures)
-
           // Pass raw signature - sendTransaction will encode it
           const result = await sendTransaction(config, allSignatures );
 
@@ -153,10 +151,10 @@ export async function sign(options: SignOptions): Promise<void> {
           spinner.fail('Failed to send transaction');
           console.error(chalk.red(`\nError: ${(error as Error).message}\n`));
 
-          showSendCommand(pending.signatures.map((s) => JSON.parse(s)));
+          showSendCommand();
         }
       } else {
-        showSendCommand(pending.signatures.map((s) => JSON.parse(s)));
+        showSendCommand();
       }
     } else {
       console.log(chalk.yellow(`\n  Need ${requiredSignatures - currentSignatures} more signature(s).`));
@@ -169,11 +167,9 @@ export async function sign(options: SignOptions): Promise<void> {
 
 /**
  * Shows the manual send command for the user
- * @param {string} signer - Signer address
- * @param {string} signature - Signature
  * @private
  */
-function showSendCommand(allSignatures: {signer: string, signature: string}[]): void {
+function showSendCommand(): void {
   console.log(chalk.gray('\n' + '─'.repeat(70)));
   console.log(chalk.white('\n  Manual send command:'));
   console.log(chalk.gray(`    npm run dev -- send-tx\n`));
