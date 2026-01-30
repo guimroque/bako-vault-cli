@@ -2,7 +2,7 @@
  * @fileoverview Transaction service for creating and sending vault transactions
  * @module services/transaction
  */
-
+import { ScriptTransactionRequest } from 'fuels';
 import type { VaultConfig, TransactionInput, PendingTransaction } from '../types.js';
 import { createVaultInstance } from './vault.js';
 import {
@@ -101,18 +101,7 @@ export async function sendTransaction(
   // Load the pending transaction
   const pending = loadPendingTransaction();
 
-  // Recreate the transaction (same parameters)
-  const assetId = pending.transaction.assetId || config.network.assets.ETH;
-
-  const { tx } = await vault.transaction({
-    assets: [
-      {
-        assetId,
-        amount: pending.transaction.amount, // Decimal string
-        to: pending.transaction.to,
-      },
-    ],
-  });
+  const tx = ScriptTransactionRequest.from(pending.txRequest)
 
   // Build witnesses array with encoded signatures (same as SDK tests)
   const witnesses: string[] = [];

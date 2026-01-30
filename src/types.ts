@@ -2,6 +2,7 @@
  * @fileoverview Type definitions for the Bako Vault CLI
  * @module types
  */
+import type { ScriptTransactionRequestLike } from 'fuels';
 
 /**
  * Configuration for the predicate's configurable parameters
@@ -103,7 +104,7 @@ export interface PendingTransaction {
   /** Encoded transaction ID */
   encodedTxId: string;
   /** Serialized transaction request (JSON) */
-  txRequest: unknown;
+  txRequest: ScriptTransactionRequestLike;
   /** Original transaction input */
   transaction: TransactionInput;
   /** ISO timestamp of creation */
